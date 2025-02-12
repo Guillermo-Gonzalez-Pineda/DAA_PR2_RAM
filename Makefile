@@ -3,9 +3,11 @@
  # Grado en Ingeniería Informática
  # Informática Básica
  #
- # @author Daniel Carbonell
- # @date 19/11/2022
- # @email alu0101578064.ull.edu.es
+ # @author Daniel Carbonell González de Chaves
+ # @email alu0101578064@ull.edu.es
+ # @author Guillermo González Pineda
+ # @email alu0101574899@ull.edu.es
+ # @date 12/02/2025
  # @brief Archivo make que compila el programa presente en el directorio. 
 
 # Nombre del archivo ejecutable
