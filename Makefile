@@ -18,7 +18,7 @@ CXX = g++
 CXXFLAGS = -std=c++11 -w
 
 # Archivos fuente
-SOURCES = src/main.cc src/unidad-entrada.cc
+SOURCES = src/main.cc src/unidad-entrada.cc src/unidad-salida.cc
 
 # Archivos objeto generados durante la compilación
 OBJECTS = $(SOURCES:.cc=.o)

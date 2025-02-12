@@ -1,11 +1,13 @@
-#include <vector>
+#include <queue>
 #include <string>
 
 class UnidadSalida {
  public:
-  UnidadSalida(std::string nombreFichero);
-  ~UnidadSalida();
-  void setDatoSalida(int dato);
+  UnidadSalida(const std::string& nombreFichero) : ficheroSalida_(nombreFichero) {}
+  ~UnidadSalida() {}
+  void guardarDatoSalida(int dato);
+  void exportarCintaSalida();
  private:
-  std::vector<int> unidadSalida_;
+  std::queue<int> unidadSalida_;
+  std::string ficheroSalida_;
 };
