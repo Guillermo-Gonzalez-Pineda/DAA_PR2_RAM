@@ -18,20 +18,25 @@
 #include "../include/unidad-salida.h"
 #include "../include/memoria-datos.h"
 #include "../include/memoria-programa.h"
+#include "../include/elegir-instruccion.h"
 
 #include <iostream>
 
 int main() {
   UnidadEntrada entrada("input/entrada.txt");
   UnidadSalida salida("output/salida.txt");
-  MemoriaPrograma programa("input/programa.ram");
+  MemoriaPrograma programa("input/programa2.ram");
   while (!entrada.entradaVacia()) {
     salida.guardarDatoSalida(entrada.leerDatoEntrada());
   }
-  std::string instruccion = "";
-  while (instruccion != "halt") {
-    instruccion = programa.leerInstruccion();
-    std::cout << instruccion << std::endl;
+  std::string cadenaInstruccion;
+  while (true) {
+    cadenaInstruccion = programa.leerInstruccion();
+    if (cadenaInstruccion == "halt") {
+      break;
+    }
+    ElegirInstruccion instruccion(cadenaInstruccion);
+    instruccion.ejecutar();
   }
   salida.exportarCintaSalida();
   return 0;
