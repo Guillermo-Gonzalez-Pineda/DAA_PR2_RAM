@@ -26,6 +26,9 @@ int main() {
   UnidadEntrada entrada("input/entrada.txt");
   UnidadSalida salida("output/salida.txt");
   MemoriaPrograma programa("input/programa2.ram");
+  int numRegistros = programa.getMaxRegistros();
+
+  MemoriaDatos memoria(numRegistros + 1);
   while (!entrada.entradaVacia()) {
     salida.guardarDatoSalida(entrada.leerDatoEntrada());
   }
@@ -35,7 +38,7 @@ int main() {
     if (cadenaInstruccion == "halt") {
       break;
     }
-    ElegirInstruccion instruccion(cadenaInstruccion);
+    ElegirInstruccion instruccion(cadenaInstruccion, &memoria);
     instruccion.ejecutar();
   }
   salida.exportarCintaSalida();

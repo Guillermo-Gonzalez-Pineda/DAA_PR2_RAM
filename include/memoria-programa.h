@@ -16,6 +16,7 @@
 
 #include <vector>
 #include <string>
+#include <unordered_map>
 
 #ifndef MEMORIA_PROGRAMA_H
 #define MEMORIA_PROGRAMA_H
@@ -30,10 +31,16 @@ class MemoriaPrograma {
  public:
   MemoriaPrograma(const std::string& nombreFichero);
   ~MemoriaPrograma() {}
-  std::string leerInstruccion();
+
+  std::string leerInstruccion();  // Devuelve la siguiente instrucción del programa.
+  void saltarEtiqueta(const std::string& etiqueta);   // Salta a la instrucción con la etiqueta dada.
+  int getMaxRegistros() const { return registros_; }  // Devuelve el número máximo de registros.
+  
  private:
   std::vector<std::string> memoriaPrograma_;
+  std::unordered_map<std::string, int> etiquetas_;
   int programCounter_;
+  int registros_;
 };
 
 #endif

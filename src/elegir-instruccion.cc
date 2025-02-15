@@ -7,8 +7,9 @@
 #include "../include/alu/alu-jump.h"
 #include "../include/alu/alu-jzero.h"
 #include "../include/alu/alu-jgtz.h"
+#include "../include/memoria-datos.h"
 
-ElegirInstruccion::ElegirInstruccion(const std::string& cadenaInstruccion) {
+ElegirInstruccion::ElegirInstruccion(const std::string& cadenaInstruccion, MemoriaDatos* memoria) {
   std::string instruccion = "", operando = "";
   bool leyendoInstruccion = true;
   for (int i = 0; i < cadenaInstruccion.size(); i++) {
@@ -44,8 +45,14 @@ ElegirInstruccion::ElegirInstruccion(const std::string& cadenaInstruccion) {
   else if (instruccion == "jgtz") {
     instruccion_ = new AluJgtz(operando);
   }
+
+  if (instruccion_) {
+    instruccion_->setMemoriaDatos(memoria);
+  }
 }
 
 void ElegirInstruccion::ejecutar() { 
-  instruccion_->ejecutar();
+  if (instruccion_) {
+    instruccion_->ejecutar();
+  }
 }

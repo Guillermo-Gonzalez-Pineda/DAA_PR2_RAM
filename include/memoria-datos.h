@@ -9,7 +9,7 @@
  * @email alu0101578064@ull.edu.es
  * @autor Guillermo González Pineda
  * @email alu0101574899@ull.edu.es
- * @date 12/02/2025
+ * @date 14/02/2025
  * @file memoria-datos.h: archivo que contiene la cabecera de la clase MemoriaDatos
  * @brief Contiene la cabecera de la clase MemoriaDatos del programa que implementa una RAM.
  */
@@ -19,12 +19,19 @@
 #ifndef MEMORIA_DATOS_H
 #define MEMORIA_DATOS_H
 
+/**
+ * @class MemoriaDatos
+ * @brief Clase que implementa la memoria de datos de la RAM.
+ * 
+ */
 class MemoriaDatos {
  public:
-  MemoriaDatos() {}
+  MemoriaDatos(int numRegistros) : memoriaDatos_(numRegistros, 0) {}
   ~MemoriaDatos() {}
-  void setDatoMemoria(int direccion, int dato) { memoriaDatos_[direccion] = dato; return; }
-  int getDatoMemoria(int direccion) const { return memoriaDatos_[direccion]; }
+
+  void setDatoMemoria(int direccion, int dato);
+  int getDatoMemoria(int direccion) const;
+  
  private:
   std::vector<int> memoriaDatos_;
 };
