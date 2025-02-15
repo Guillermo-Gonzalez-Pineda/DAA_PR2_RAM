@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/guillermo/DAA/PR2_RAM/DAA_PR2_RAM/include/memoria-programa.h
+vector
+-
+string
+-
+unordered_map
+-
+
+/home/guillermo/DAA/PR2_RAM/DAA_PR2_RAM/src/memoria-programa.cc
+../include/memoria-programa.h
+/home/guillermo/DAA/PR2_RAM/DAA_PR2_RAM/include/memoria-programa.h
+fstream
+-
+iostream
+-
+string
+-
+algorithm
+-
+
