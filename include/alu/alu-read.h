@@ -10,28 +10,29 @@
  * @autor Guillermo González Pineda
  * @email alu0101574899@ull.edu.es
  * @date 14/02/2025
- * @file alu-div.h: archivo que contiene la cabecera de la clase AluDiv
- * @brief Contiene la cabecera de la clase AluDiv que implementa la operación DIV de la ALU.
+ * @file alu-read.h: archivo que contiene la cabecera de la clase AluRead
+ * @brief Contiene la cabecera de la clase AluRead que implementa la operación READ de la ALU.
  */
 
 #include "unidad-alu.h"
 
 #include <iostream>
 
-#ifndef ALU_DIV_H
-#define ALU_DIV_H
+#ifndef ALU_READ_H
+#define ALU_READ_H
 
 /**
- * @class AluDiv
- * @brief Clase que implementa la operación DIV de la ALU.
+ * @class AluRead
+ * @brief Clase que implementa la operación READ de la ALU.
  * 
  */
-class AluDiv : public UnidadALU {
- public:
-  AluDiv(const std::string& operando) : operando_(operando) {}
-  void ejecutar() override;
- private:
-  std::string operando_;
-};
-
+class AluRead : public UnidadALU {
+  public:
+    AluRead(const std::string& operando) : operando_(operando) {}
+    void ejecutar() override;
+    
+  private:
+    std::string operando_;
+  };
+  
 #endif

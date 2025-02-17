@@ -30,6 +30,7 @@ class UnidadSalida {
   ~UnidadSalida() {}
   void guardarDatoSalida(int dato);
   void exportarCintaSalida();
+  void escribirDatoSalida(int dato);
  private:
   std::queue<int> unidadSalida_;
   std::string ficheroSalida_;

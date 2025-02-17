@@ -22,25 +22,32 @@
 
 #include <iostream>
 
-int main() {
-  UnidadEntrada entrada("input/entrada.txt");
-  UnidadSalida salida("output/salida.txt");
-  MemoriaPrograma programa("input/programa2.ram");
-  int numRegistros = programa.getMaxRegistros();
-
-  MemoriaDatos memoria(numRegistros + 1);
-  while (!entrada.entradaVacia()) {
-    salida.guardarDatoSalida(entrada.leerDatoEntrada());
+int main(int argc, char* argv[]) {
+  if (argc != 4) {
+    std::cerr << "Error en la ejecución. Uso: ./ram <fichero_programa> <fichero_entrada> <fichero_salida>" << std::endl;
+    return 1;
   }
-  std::string cadenaInstruccion;
+
+  std::string ficheroPrograma = argv[1];
+  std::string ficheroEntrada = argv[2];
+  std::string ficheroSalida = argv[3];
+
+  MemoriaPrograma memoriaPrograma(ficheroPrograma);
+  UnidadEntrada unidadEntrada(ficheroEntrada);
+  UnidadSalida unidadSalida(ficheroSalida);
+  int numRegistros = memoriaPrograma.getMaxRegistros();
+
+  MemoriaDatos memoriaDatos(numRegistros + 1);
+
+  std::string cadenaInstruccion = "";
   while (true) {
-    cadenaInstruccion = programa.leerInstruccion();
-    if (cadenaInstruccion == "halt") {
+    cadenaInstruccion = memoriaPrograma.leerInstruccion();
+    if (cadenaInstruccion == "halt" || cadenaInstruccion == "HALT") {
       break;
     }
-    ElegirInstruccion instruccion(cadenaInstruccion, &memoria);
+    ElegirInstruccion instruccion(cadenaInstruccion, &memoriaDatos, &unidadEntrada, &unidadSalida, &memoriaPrograma);
     instruccion.ejecutar();
   }
-  salida.exportarCintaSalida();
+  unidadSalida.exportarCintaSalida();
   return 0;
 }

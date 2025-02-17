@@ -15,6 +15,9 @@
  */
 
 #include "alu/unidad-alu.h"
+#include "../include/memoria-datos.h"
+#include "../include/unidad-entrada.h"
+#include "../include/unidad-salida.h"
 
 #ifndef ELEGIR_INSTRUCCION_H
 #define ELEGIR_INSTRUCCION_H
@@ -25,8 +28,12 @@
  */
 class ElegirInstruccion {
  public: 
- ElegirInstruccion(const std::string& instruccion, MemoriaDatos* memoria);
- void ejecutar();
+  ElegirInstruccion(const std::string& instruccion, 
+                    MemoriaDatos* memoria, 
+                    UnidadEntrada* unidadEntrada = nullptr, 
+                    UnidadSalida* unidadSalida = nullptr, 
+                    MemoriaPrograma* memoriaPrograma = nullptr);
+  void ejecutar();
  private:
   UnidadALU* instruccion_ = nullptr;
 };

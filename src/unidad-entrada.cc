@@ -46,6 +46,6 @@ UnidadEntrada::UnidadEntrada(const std::string& nombreFichero) {
  */
 int UnidadEntrada::leerDatoEntrada() { 
   int dato = unidadEntrada_.front();
-  unidadEntrada_.pop();           
+  unidadEntrada_.pop();
   return dato;
 }

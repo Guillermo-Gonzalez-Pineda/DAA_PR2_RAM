@@ -35,6 +35,7 @@ class MemoriaPrograma {
   std::string leerInstruccion();  // Devuelve la siguiente instrucción del programa.
   void saltarEtiqueta(const std::string& etiqueta);   // Salta a la instrucción con la etiqueta dada.
   int getMaxRegistros() const { return registros_; }  // Devuelve el número máximo de registros.
+  int getProgramCounter() const { return programCounter_; }  // Devuelve el contador de programa.
   
  private:
   std::vector<std::string> memoriaPrograma_;

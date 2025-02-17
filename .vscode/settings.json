@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "*.cc": "cpp",
+    "string": "cpp",
+    "string_view": "cpp",
+    "stdexcept": "cpp"
+  }
+}

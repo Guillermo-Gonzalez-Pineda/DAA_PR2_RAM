@@ -26,7 +26,7 @@
  * @param dato Dato que se agregará a la cola.
  */
 void UnidadSalida::guardarDatoSalida(int dato) { 
-  unidadSalida_.push(dato);       
+  unidadSalida_.push(dato);
   return;
 }
 
@@ -43,6 +43,20 @@ void UnidadSalida::exportarCintaSalida() {
     fichero << unidadSalida_.front() << " ";
     unidadSalida_.pop();
   }
+  fichero.close();
+  return;
+}
+
+/**
+ * @brief Escribe en el fichero de salida el dato que se le pasa.
+ * @param dato Dato que se agregará a la cola.
+ */
+void UnidadSalida::escribirDatoSalida(int dato) {
+  std::ofstream fichero(ficheroSalida_, std::ios::app);
+  if (!fichero) {
+    throw std::runtime_error("Error: No se ha podido abrir el archivo de salida.");
+  }
+  fichero << dato << " ";
   fichero.close();
   return;
 }

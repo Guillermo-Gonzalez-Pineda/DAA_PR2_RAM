@@ -10,26 +10,27 @@
  * @autor Guillermo González Pineda
  * @email alu0101574899@ull.edu.es
  * @date 14/02/2025
- * @file alu-div.h: archivo que contiene la cabecera de la clase AluDiv
- * @brief Contiene la cabecera de la clase AluDiv que implementa la operación DIV de la ALU.
+ * @file alu-store.h: archivo que contiene la cabecera de la clase AluStore
+ * @brief Contiene la cabecera de la clase AluStore que implementa la operación STORE de la ALU.
  */
 
 #include "unidad-alu.h"
 
 #include <iostream>
 
-#ifndef ALU_DIV_H
-#define ALU_DIV_H
+#ifndef ALU_STORE_H
+#define ALU_STORE_H
 
 /**
- * @class AluDiv
- * @brief Clase que implementa la operación DIV de la ALU.
+ * @class AluStore
+ * @brief Clase que implementa la operación STORE de la ALU.
  * 
  */
-class AluDiv : public UnidadALU {
+class AluStore : public UnidadALU {
  public:
-  AluDiv(const std::string& operando) : operando_(operando) {}
+  AluStore(const std::string& operando) : operando_(operando) {}
   void ejecutar() override;
+  
  private:
   std::string operando_;
 };

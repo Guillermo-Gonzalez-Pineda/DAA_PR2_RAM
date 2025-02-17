@@ -103,7 +103,6 @@ void MemoriaPrograma::saltarEtiqueta(const std::string& etiqueta) {
   if (etiquetas_.find(etiqueta) == etiquetas_.end()) {
     throw std::runtime_error("Error: Etiqueta no encontrada.");
   }
-
   programCounter_ = etiquetas_[etiqueta];
   return;
 }

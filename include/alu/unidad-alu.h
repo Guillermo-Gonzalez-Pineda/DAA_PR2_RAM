@@ -16,6 +16,9 @@
 
 #include <string>
 #include "../memoria-datos.h"
+#include "../unidad-entrada.h"
+#include "../unidad-salida.h"
+#include "../memoria-programa.h"
 
 #ifndef UNIDAD_ALU_H
 #define UNIDAD_ALU_H
@@ -29,10 +32,16 @@ class UnidadALU {
  public:
   virtual void ejecutar() = 0;
   void setMemoriaDatos(MemoriaDatos* memoriaDatos) { memoriaDatos_ = memoriaDatos; }
+  void setUnidadEntrada(UnidadEntrada* unidadEntrada) { unidadEntrada_ = unidadEntrada; }
+  void setUnidadSalida(UnidadSalida* unidadSalida) { unidadSalida_ = unidadSalida; }
+  void setMemoriaPrograma(MemoriaPrograma* memoriaPrograma) { memoriaPrograma_ = memoriaPrograma; }
   virtual ~UnidadALU() {}
 
  protected:
   MemoriaDatos* memoriaDatos_ = nullptr;
+  UnidadEntrada* unidadEntrada_ = nullptr;
+  UnidadSalida* unidadSalida_ = nullptr;
+  MemoriaPrograma* memoriaPrograma_ = nullptr;
 };
 
 #endif

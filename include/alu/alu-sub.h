@@ -28,10 +28,10 @@
  */
 class AluSub : public UnidadALU {
  public:
-  AluSub(int operando) : operando_(operando) {}
+  AluSub(const std::string& operando) : operando_(operando) {}
   void ejecutar() override;
  private:
-  int operando_;
+  std::string operando_;
 };
 
 #endif

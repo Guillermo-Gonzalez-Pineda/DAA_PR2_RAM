@@ -10,26 +10,27 @@
  * @autor Guillermo González Pineda
  * @email alu0101574899@ull.edu.es
  * @date 14/02/2025
- * @file alu-div.h: archivo que contiene la cabecera de la clase AluDiv
- * @brief Contiene la cabecera de la clase AluDiv que implementa la operación DIV de la ALU.
+ * @file alu-write.h: archivo que contiene la cabecera de la clase AluWrite
+ * @brief Contiene la cabecera de la clase AluWrite que implementa la operación WRITE de la ALU.
  */
 
 #include "unidad-alu.h"
 
 #include <iostream>
 
-#ifndef ALU_DIV_H
-#define ALU_DIV_H
+#ifndef ALU_WRITE_H
+#define ALU_WRITE_H
 
 /**
- * @class AluDiv
- * @brief Clase que implementa la operación DIV de la ALU.
+ * @class AluWrite
+ * @brief Clase que implementa la operación WRITE de la ALU.
  * 
  */
-class AluDiv : public UnidadALU {
+class AluWrite : public UnidadALU {
  public:
-  AluDiv(const std::string& operando) : operando_(operando) {}
+  AluWrite(const std::string& operando) : operando_(operando) {}
   void ejecutar() override;
+  
  private:
   std::string operando_;
 };
