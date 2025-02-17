@@ -23,7 +23,13 @@ void AluAdd::ejecutar() {
 
     if (operando_[0] == '=') {
       suma = std::stoi(operando_.substr(1));
-    } else {
+    } 
+    else if (operando_[0] == '*') {
+      suma = std::stoi(operando_.substr(1));
+      suma = memoriaDatos_->getDatoMemoria(suma);
+      suma = memoriaDatos_->getDatoMemoria(suma);
+    } 
+    else {
       suma = memoriaDatos_->getDatoMemoria(std::stoi(operando_));
     }
     memoriaDatos_->setDatoMemoria(0, valorRegistro0 + suma);
@@ -48,7 +54,18 @@ void AluDiv::ejecutar() {
       } else {
         throw std::invalid_argument("No se puede dividir por cero");
       }
-    } else {
+    } 
+    else if (operando_[0] == '*') {
+      divisor = std::stoi(operando_.substr(1));
+      divisor = memoriaDatos_->getDatoMemoria(divisor);
+      divisor = memoriaDatos_->getDatoMemoria(divisor);
+      if (divisor != 0) {
+        memoriaDatos_->setDatoMemoria(0, valorRegistro0 / divisor);
+      } else {
+        throw std::invalid_argument("No se puede dividir por cero");
+      }
+    } 
+    else {
       divisor = memoriaDatos_->getDatoMemoria(std::stoi(operando_));
       if (divisor != 0) {
         memoriaDatos_->setDatoMemoria(0, valorRegistro0 / divisor);
@@ -117,7 +134,13 @@ void AluMul::ejecutar() {
     int multiplicador = 0;
     if (operando_[0] == '=') {
       multiplicador = std::stoi(operando_.substr(1));
-    } else {
+    }
+    else if (operando_[0] == '*') {
+      multiplicador = std::stoi(operando_.substr(1));
+      multiplicador = memoriaDatos_->getDatoMemoria(multiplicador);
+      multiplicador = memoriaDatos_->getDatoMemoria(multiplicador);
+    } 
+    else {
       multiplicador = memoriaDatos_->getDatoMemoria(std::stoi(operando_));
     }
     memoriaDatos_->setDatoMemoria(0, valorRegistro0 * multiplicador);
@@ -137,7 +160,13 @@ void AluSub::ejecutar() {
     int resta = 0;
     if (operando_[0] == '=') {
       resta = std::stoi(operando_.substr(1));
-    } else {
+    }
+    else if (operando_[0] == '*') {
+      resta = std::stoi(operando_.substr(1));
+      resta = memoriaDatos_->getDatoMemoria(resta);
+      resta = memoriaDatos_->getDatoMemoria(resta);
+    } 
+    else {
       resta = memoriaDatos_->getDatoMemoria(std::stoi(operando_));
     }
     memoriaDatos_->setDatoMemoria(0, valorRegistro0 - resta);
@@ -155,7 +184,14 @@ void AluRead::ejecutar() {
   if (memoriaDatos_ && unidadEntrada_) {
     if (operando_[0] == '=') {
       throw std::invalid_argument("No se puede leer de una dirección de memoria constante");
-    } else {
+    }
+    else if (operando_[0] == '*') {
+      int dato = unidadEntrada_->leerDatoEntrada();
+      int registro = std::stoi(operando_.substr(1));
+      registro = memoriaDatos_->getDatoMemoria(registro);
+      memoriaDatos_->setDatoMemoria(registro, dato);
+    } 
+    else {
       int dato = unidadEntrada_->leerDatoEntrada();
       memoriaDatos_->setDatoMemoria(std::stoi(operando_), dato);
     }
@@ -174,7 +210,14 @@ void AluWrite::ejecutar() {
     if (operando_[0] == '=') {
       int dato = std::stoi(operando_.substr(1));
       unidadSalida_->guardarDatoSalida(dato);
-    } else {
+    } 
+    else if (operando_[0] == '*') {
+      int registro = std::stoi(operando_.substr(1));
+      registro = memoriaDatos_->getDatoMemoria(registro);
+      int dato = memoriaDatos_->getDatoMemoria(registro);
+      unidadSalida_->guardarDatoSalida(dato);
+    } 
+    else {
       int dato = memoriaDatos_->getDatoMemoria(std::stoi(operando_));
       unidadSalida_->guardarDatoSalida(dato);
     }
@@ -193,7 +236,14 @@ void AluLoad::ejecutar() {
     if (operando_[0] == '=') {
       int dato = std::stoi(operando_.substr(1));
       memoriaDatos_->setDatoMemoria(0, dato);
-    } else {
+    }
+    else if (operando_[0] == '*') {
+      int registro = std::stoi(operando_.substr(1));
+      registro = memoriaDatos_->getDatoMemoria(registro);
+      int dato = memoriaDatos_->getDatoMemoria(registro);
+      memoriaDatos_->setDatoMemoria(0, dato);
+    } 
+    else {
       int dato = memoriaDatos_->getDatoMemoria(std::stoi(operando_));
       memoriaDatos_->setDatoMemoria(0, dato);
     }
@@ -211,7 +261,14 @@ void AluStore::ejecutar() {
   if (memoriaDatos_) {
     if (operando_[0] == '=') {
       throw std::invalid_argument("No se puede almacenar en una dirección de memoria constante");
-    } else {
+    } 
+    else if (operando_[0] == '*') {
+      int registro = std::stoi(operando_.substr(1));
+      registro = memoriaDatos_->getDatoMemoria(registro);
+      int dato = memoriaDatos_->getDatoMemoria(0);
+      memoriaDatos_->setDatoMemoria(registro, dato);
+    } 
+    else {
       int dato = memoriaDatos_->getDatoMemoria(0);
       memoriaDatos_->setDatoMemoria(std::stoi(operando_), dato);
     }

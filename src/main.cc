@@ -37,7 +37,7 @@ int main(int argc, char* argv[]) {
   UnidadSalida unidadSalida(ficheroSalida);
   int numRegistros = memoriaPrograma.getMaxRegistros();
 
-  MemoriaDatos memoriaDatos(numRegistros + 1);
+  MemoriaDatos memoriaDatos(50);
 
   std::string cadenaInstruccion = "";
   while (true) {

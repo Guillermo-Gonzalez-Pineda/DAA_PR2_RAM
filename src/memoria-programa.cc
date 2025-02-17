@@ -20,6 +20,7 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <cstdlib>
 
 /**
  * @brief Constructor de la clase MemoriaPrograma.
@@ -101,6 +102,11 @@ std::string MemoriaPrograma::leerInstruccion(){
  */
 void MemoriaPrograma::saltarEtiqueta(const std::string& etiqueta) {
   if (etiquetas_.find(etiqueta) == etiquetas_.end()) {
+    std::cout << "Lista de etiquetas:" << std::endl;
+    for (auto etiqueta1: etiquetas_) {
+      std::cout << etiqueta1.first << " " << etiqueta1.second << std::endl;
+    }
+    std::cout << "Etiqueta no encontrada: " << etiqueta << std::endl;
     throw std::runtime_error("Error: Etiqueta no encontrada.");
   }
   programCounter_ = etiquetas_[etiqueta];
