@@ -42,7 +42,7 @@ int main(int argc, char* argv[]) {
   std::string cadenaInstruccion = "";
   while (true) {
     cadenaInstruccion = memoriaPrograma.leerInstruccion();
-    if (cadenaInstruccion == "halt" || cadenaInstruccion == "HALT") {
+    if (cadenaInstruccion == "halt" || cadenaInstruccion == "HALT" || cadenaInstruccion == "HALT\r" || cadenaInstruccion == "HALT\n") {
       break;
     }
     ElegirInstruccion instruccion(cadenaInstruccion, &memoriaDatos, &unidadEntrada, &unidadSalida, &memoriaPrograma);

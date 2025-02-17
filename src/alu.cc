@@ -214,10 +214,16 @@ void AluWrite::ejecutar() {
     else if (operando_[0] == '*') {
       int registro = std::stoi(operando_.substr(1));
       registro = memoriaDatos_->getDatoMemoria(registro);
+      if (registro == 0) {
+        throw std::invalid_argument("No se puede escribir un dato del registro 0.");
+      }
       int dato = memoriaDatos_->getDatoMemoria(registro);
       unidadSalida_->guardarDatoSalida(dato);
     } 
     else {
+      if (std::stoi(operando_) == 0) {
+        throw std::invalid_argument("No se puede escribir un dato del registro 0.");
+      }
       int dato = memoriaDatos_->getDatoMemoria(std::stoi(operando_));
       unidadSalida_->guardarDatoSalida(dato);
     }

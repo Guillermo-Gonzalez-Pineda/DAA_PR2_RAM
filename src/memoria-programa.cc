@@ -21,6 +21,7 @@
 #include <string>
 #include <algorithm>
 #include <cstdlib>
+#include <iomanip>
 
 /**
  * @brief Constructor de la clase MemoriaPrograma.
@@ -101,14 +102,12 @@ std::string MemoriaPrograma::leerInstruccion(){
  * @throw std::runtime_error Si la etiqueta no existe.
  */
 void MemoriaPrograma::saltarEtiqueta(const std::string& etiqueta) {
-  if (etiquetas_.find(etiqueta) == etiquetas_.end()) {
-    std::cout << "Lista de etiquetas:" << std::endl;
-    for (auto etiqueta1: etiquetas_) {
-      std::cout << etiqueta1.first << " " << etiqueta1.second << std::endl;
-    }
-    std::cout << "Etiqueta no encontrada: " << etiqueta << std::endl;
+  std::string etiqueta2 = etiqueta;
+  etiqueta2.erase(std::remove(etiqueta2.begin(), etiqueta2.end(), '\r'), etiqueta2.end());
+  etiqueta2.erase(std::remove(etiqueta2.begin(), etiqueta2.end(), '\n'), etiqueta2.end());
+  if (etiquetas_.find(etiqueta2) == etiquetas_.end()) {
     throw std::runtime_error("Error: Etiqueta no encontrada.");
   }
-  programCounter_ = etiquetas_[etiqueta];
+  programCounter_ = etiquetas_[etiqueta2];
   return;
 }
