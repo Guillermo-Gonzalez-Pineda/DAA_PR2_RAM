@@ -28,11 +28,7 @@
  */
 class ElegirInstruccion {
  public: 
-  ElegirInstruccion(const std::string& instruccion, 
-                    MemoriaDatos* memoria, 
-                    UnidadEntrada* unidadEntrada = nullptr, 
-                    UnidadSalida* unidadSalida = nullptr, 
-                    MemoriaPrograma* memoriaPrograma = nullptr);
+  ElegirInstruccion(const std::string& instruccion, MemoriaDatos* memoria, UnidadEntrada* unidadEntrada = nullptr, UnidadSalida* unidadSalida = nullptr, MemoriaPrograma* memoriaPrograma = nullptr);
   void ejecutar();
  private:
   UnidadALU* instruccion_ = nullptr;

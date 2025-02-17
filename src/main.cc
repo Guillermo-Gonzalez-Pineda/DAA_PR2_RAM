@@ -35,7 +35,7 @@ int main(int argc, char* argv[]) {
   MemoriaPrograma memoriaPrograma(ficheroPrograma);
   UnidadEntrada unidadEntrada(ficheroEntrada);
   UnidadSalida unidadSalida(ficheroSalida);
-  int numRegistros = memoriaPrograma.getMaxRegistros();
+  // int numRegistros = memoriaPrograma.getMaxRegistros();
 
   MemoriaDatos memoriaDatos(50);
 

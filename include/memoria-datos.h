@@ -28,10 +28,8 @@ class MemoriaDatos {
  public:
   MemoriaDatos(int numRegistros) : memoriaDatos_(numRegistros, 0) {}
   ~MemoriaDatos() {}
-
   void setDatoMemoria(int direccion, int dato);
   int getDatoMemoria(int direccion) const;
-  
  private:
   std::vector<int> memoriaDatos_;
 };

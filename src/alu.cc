@@ -1,3 +1,19 @@
+/**
+ * Universidad de La Laguna
+ * Escuela Superior de Ingeniería y Tecnología
+ * Grado en Ingeniería Informática
+ * Asignatura: Diseño y Análisis de Algoritmos
+ * Curso: 3º
+ * Práctica 2: Experimentación y complejidad computacional
+ * @autor Daniel Carbonell González de Chaves
+ * @email alu0101578064@ull.edu.es
+ * @autor Guillermo González Pineda
+ * @email alu0101574899@ull.edu.es
+ * @date 12/02/2025
+ * @file alu.cc: archivo que contiene la implementacion de la clase UnidadAlu y sus subclases
+ * @brief Contiene la implementacion de la clase UnidadAlu y sus subclases del programa que implementa una RAM.
+ */
+
 #include "../include/alu/alu-add.h"
 #include "../include/alu/alu-div.h"
 #include "../include/alu/alu-jgtz.h"
@@ -20,7 +36,6 @@ void AluAdd::ejecutar() {
   if (memoriaDatos_) {
     int valorRegistro0 = memoriaDatos_->getDatoMemoria(0);
     int suma = 0;
-
     if (operando_[0] == '=') {
       suma = std::stoi(operando_.substr(1));
     } 
@@ -51,7 +66,9 @@ void AluDiv::ejecutar() {
       divisor = std::stoi(operando_.substr(1));
       if (divisor != 0) {
         memoriaDatos_->setDatoMemoria(0, valorRegistro0 / divisor);
-      } else {
+      } 
+      else {
+        std::cout << "Error en la linea: " << + memoriaPrograma_->lineaError() << std::endl;
         throw std::invalid_argument("No se puede dividir por cero");
       }
     } 
@@ -61,7 +78,9 @@ void AluDiv::ejecutar() {
       divisor = memoriaDatos_->getDatoMemoria(divisor);
       if (divisor != 0) {
         memoriaDatos_->setDatoMemoria(0, valorRegistro0 / divisor);
-      } else {
+      }
+      else {
+        std::cout << "Error en la linea: " << + memoriaPrograma_->lineaError() << std::endl;
         throw std::invalid_argument("No se puede dividir por cero");
       }
     } 
@@ -69,7 +88,9 @@ void AluDiv::ejecutar() {
       divisor = memoriaDatos_->getDatoMemoria(std::stoi(operando_));
       if (divisor != 0) {
         memoriaDatos_->setDatoMemoria(0, valorRegistro0 / divisor);
-      } else {
+      }
+      else {
+        std::cout << "Error en la linea: " << + memoriaPrograma_->lineaError() << std::endl;
         throw std::invalid_argument("No se puede dividir por cero");
       }
     }
@@ -183,6 +204,7 @@ void AluSub::ejecutar() {
 void AluRead::ejecutar() {
   if (memoriaDatos_ && unidadEntrada_) {
     if (operando_[0] == '=') {
+      std::cout << "Error en la linea: " << + memoriaPrograma_->lineaError() << std::endl;
       throw std::invalid_argument("No se puede leer de una dirección de memoria constante");
     }
     else if (operando_[0] == '*') {
@@ -215,6 +237,7 @@ void AluWrite::ejecutar() {
       int registro = std::stoi(operando_.substr(1));
       registro = memoriaDatos_->getDatoMemoria(registro);
       if (registro == 0) {
+        std::cout << "Error en la linea: " << + memoriaPrograma_->lineaError() << std::endl;
         throw std::invalid_argument("No se puede escribir un dato del registro 0.");
       }
       int dato = memoriaDatos_->getDatoMemoria(registro);
@@ -222,6 +245,7 @@ void AluWrite::ejecutar() {
     } 
     else {
       if (std::stoi(operando_) == 0) {
+        std::cout << "Error en la linea: " << + memoriaPrograma_->lineaError() << std::endl;
         throw std::invalid_argument("No se puede escribir un dato del registro 0.");
       }
       int dato = memoriaDatos_->getDatoMemoria(std::stoi(operando_));
@@ -266,6 +290,7 @@ void AluLoad::ejecutar() {
 void AluStore::ejecutar() {
   if (memoriaDatos_) {
     if (operando_[0] == '=') {
+      std::cout << "Error en la linea: " << + memoriaPrograma_->lineaError() << std::endl;
       throw std::invalid_argument("No se puede almacenar en una dirección de memoria constante");
     } 
     else if (operando_[0] == '*') {

@@ -36,7 +36,6 @@ class UnidadALU {
   void setUnidadSalida(UnidadSalida* unidadSalida) { unidadSalida_ = unidadSalida; }
   void setMemoriaPrograma(MemoriaPrograma* memoriaPrograma) { memoriaPrograma_ = memoriaPrograma; }
   virtual ~UnidadALU() {}
-
  protected:
   MemoriaDatos* memoriaDatos_ = nullptr;
   UnidadEntrada* unidadEntrada_ = nullptr;

@@ -33,49 +33,36 @@
  */
 MemoriaPrograma::MemoriaPrograma(const std::string& ficheroPrograma) {
   programCounter_ = 0;
-  registros_ = 0;
-
   std::ifstream fichero(ficheroPrograma, std::ios::in);
   if (!fichero) {
     throw std::runtime_error("Error: No se ha podido abrir el archivo del programa.");
   }
-
   std::string linea = "", instruccion = "", etiqueta = "";
-  int lineaActual = 0;
-
+  int lineaActual = 0, lineasComentarios = 0;
   while (std::getline(fichero, linea)) {
-    // Ignoramos los comentarios
     if (linea[0] == '#') {
+      lineasComentarios++;
       continue;
     }
-
     linea.erase(std::remove(linea.begin(), linea.end(), '\t'), linea.end());
     if (!linea.empty()) {
       etiqueta = "";
       size_t pos = linea.find(":");
-
       if (pos != std::string::npos) {
         etiqueta = linea.substr(0, pos);
         etiquetas_[etiqueta] = lineaActual;
         linea = linea.substr(pos + 1);
       }
-
       if (!linea.empty()) {
         memoriaPrograma_.push_back(linea);
-        
-        // Buscamos el número de registros
-        size_t pos = linea.find(" ");   // Buscamos el espacio
-        if (pos != std::string::npos) {   // Si hay espacio, entonces
-          std::string operando = linea.substr(pos + 1);  // Guardamos el operando
-          if (std::all_of(operando.begin(), operando.end(), ::isdigit)) {  // Comprobamos que el operando sean solo digitos
-            registros_ = std::max(registros_, std::stoi(operando)); // Guardamos el máximo de registros
-          }
-        }
-
         lineaActual++;
       }
     }
+    else {
+      lineasComentarios++;
+    }
   }
+  lineasComentarios_ = lineasComentarios;
   fichero.close();
   return;
 }
@@ -91,7 +78,6 @@ std::string MemoriaPrograma::leerInstruccion(){
   if (programCounter_ >= memoriaPrograma_.size()) {
     throw std::runtime_error("Error: Fin del programa alcanzado.");
   }
-
   return memoriaPrograma_[programCounter_++];
 }
 
@@ -106,6 +92,7 @@ void MemoriaPrograma::saltarEtiqueta(const std::string& etiqueta) {
   etiqueta2.erase(std::remove(etiqueta2.begin(), etiqueta2.end(), '\r'), etiqueta2.end());
   etiqueta2.erase(std::remove(etiqueta2.begin(), etiqueta2.end(), '\n'), etiqueta2.end());
   if (etiquetas_.find(etiqueta2) == etiquetas_.end()) {
+    std::cout << "Error en la linea: " << + lineaError() << std::endl;
     throw std::runtime_error("Error: Etiqueta no encontrada.");
   }
   programCounter_ = etiquetas_[etiqueta2];

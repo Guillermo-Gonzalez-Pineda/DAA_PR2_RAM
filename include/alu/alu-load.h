@@ -30,7 +30,6 @@ class AluLoad : public UnidadALU {
  public:
   AluLoad(const std::string& operando) : operando_(operando) {}
   void ejecutar() override;
-  
  private:
   std::string operando_;
 };

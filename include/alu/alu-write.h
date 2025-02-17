@@ -30,7 +30,6 @@ class AluWrite : public UnidadALU {
  public:
   AluWrite(const std::string& operando) : operando_(operando) {}
   void ejecutar() override;
-  
  private:
   std::string operando_;
 };
