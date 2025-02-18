@@ -25,6 +25,7 @@
 #include "../include/alu/alu-write.h"
 #include "../include/alu/alu-load.h"
 #include "../include/alu/alu-store.h"
+#include "../include/alu/alu-mod.h"
 
 /**
  * @brief Operación ejecutar de la clase AluAdd.
@@ -303,6 +304,32 @@ void AluStore::ejecutar() {
       int dato = memoriaDatos_->getDatoMemoria(0);
       memoriaDatos_->setDatoMemoria(std::stoi(operando_), dato);
     }
+  }
+  return;
+}
+
+/**
+ * @brief Operación ejecutar de la clase AluMod
+ * 
+ * @param operando Operando que se calculara el modulo al registro 0.
+ * @return AluMod
+ */
+void AluMod::ejecutar() {
+  if (memoriaDatos_) {
+    int valorRegistro0 = memoriaDatos_->getDatoMemoria(0);
+    int modulo = 0;
+    if (operando_[0] == '=') {
+      modulo = std::stoi(operando_.substr(1));
+    } 
+    else if (operando_[0] == '*') {
+      modulo = std::stoi(operando_.substr(1));
+      modulo = memoriaDatos_->getDatoMemoria(modulo);
+      modulo = memoriaDatos_->getDatoMemoria(modulo);
+    } 
+    else {
+      modulo = memoriaDatos_->getDatoMemoria(std::stoi(operando_));
+    }
+    memoriaDatos_->setDatoMemoria(0, valorRegistro0 % modulo);
   }
   return;
 }

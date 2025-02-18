@@ -27,6 +27,7 @@
 #include "../include/alu/alu-store.h"
 #include "../include/alu/alu-read.h"
 #include "../include/alu/alu-write.h"
+#include "../include/alu/alu-mod.h"
 
 /**
  * @brief Constructor de la clase ElegirInstruccion.
@@ -88,6 +89,9 @@ ElegirInstruccion::ElegirInstruccion(const std::string& cadenaInstruccion, Memor
   }
   else if (instruccion == "write" || instruccion == "WRITE") {
     instruccion_ = new AluWrite(operando);
+  }
+  else if (instruccion == "mod" || instruccion == "MOD") {
+    instruccion_ = new AluMod(operando);
   }
   if (instruccion_) {
     instruccion_->setMemoriaDatos(memoria);
