@@ -61,7 +61,6 @@ add_executable(RAM
     src/elegir-instruccion.cc
     src/memoria-datos.cc
     src/memoria-programa.cc
-    src/unidad-alu.cc
     src/unidad-entrada.cc
     src/unidad-salida.cc
     )
