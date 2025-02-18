@@ -52,7 +52,6 @@ CMakeFiles/RAM.dir/src/memoria-datos.cc.o: ../src/memoria-datos.cc
 CMakeFiles/RAM.dir/src/memoria-programa.cc.o: ../include/memoria-programa.h
 CMakeFiles/RAM.dir/src/memoria-programa.cc.o: ../src/memoria-programa.cc
 
-
 CMakeFiles/RAM.dir/src/unidad-entrada.cc.o: ../include/unidad-entrada.h
 CMakeFiles/RAM.dir/src/unidad-entrada.cc.o: ../src/unidad-entrada.cc
 

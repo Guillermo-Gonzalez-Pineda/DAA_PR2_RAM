@@ -74,12 +74,12 @@ clean: CMakeFiles/RAM.dir/clean
 CMakeFiles/RAM.dir/all:
 	$(MAKE) -f CMakeFiles/RAM.dir/build.make CMakeFiles/RAM.dir/depend
 	$(MAKE) -f CMakeFiles/RAM.dir/build.make CMakeFiles/RAM.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/guillermo/DAA/PR2_RAM/DAA_PR2_RAM/debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target RAM"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/guillermo/DAA/PR2_RAM/DAA_PR2_RAM/debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target RAM"
 .PHONY : CMakeFiles/RAM.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/RAM.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/guillermo/DAA/PR2_RAM/DAA_PR2_RAM/debug/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/guillermo/DAA/PR2_RAM/DAA_PR2_RAM/debug/CMakeFiles 8
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/RAM.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/guillermo/DAA/PR2_RAM/DAA_PR2_RAM/debug/CMakeFiles 0
 .PHONY : CMakeFiles/RAM.dir/rule

@@ -258,33 +258,6 @@ src/memoria-programa.cc.s:
 	$(MAKE) -f CMakeFiles/RAM.dir/build.make CMakeFiles/RAM.dir/src/memoria-programa.cc.s
 .PHONY : src/memoria-programa.cc.s
 
-src/unidad-alu.o: src/unidad-alu.cc.o
-
-.PHONY : src/unidad-alu.o
-
-# target to build an object file
-src/unidad-alu.cc.o:
-	$(MAKE) -f CMakeFiles/RAM.dir/build.make CMakeFiles/RAM.dir/src/unidad-alu.cc.o
-.PHONY : src/unidad-alu.cc.o
-
-src/unidad-alu.i: src/unidad-alu.cc.i
-
-.PHONY : src/unidad-alu.i
-
-# target to preprocess a source file
-src/unidad-alu.cc.i:
-	$(MAKE) -f CMakeFiles/RAM.dir/build.make CMakeFiles/RAM.dir/src/unidad-alu.cc.i
-.PHONY : src/unidad-alu.cc.i
-
-src/unidad-alu.s: src/unidad-alu.cc.s
-
-.PHONY : src/unidad-alu.s
-
-# target to generate assembly for a file
-src/unidad-alu.cc.s:
-	$(MAKE) -f CMakeFiles/RAM.dir/build.make CMakeFiles/RAM.dir/src/unidad-alu.cc.s
-.PHONY : src/unidad-alu.cc.s
-
 src/unidad-entrada.o: src/unidad-entrada.cc.o
 
 .PHONY : src/unidad-entrada.o
@@ -363,9 +336,6 @@ help:
 	@echo "... src/memoria-programa.o"
 	@echo "... src/memoria-programa.i"
 	@echo "... src/memoria-programa.s"
-	@echo "... src/unidad-alu.o"
-	@echo "... src/unidad-alu.i"
-	@echo "... src/unidad-alu.s"
 	@echo "... src/unidad-entrada.o"
 	@echo "... src/unidad-entrada.i"
 	@echo "... src/unidad-entrada.s"

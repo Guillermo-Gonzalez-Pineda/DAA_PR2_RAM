@@ -1,0 +1,17 @@
+inicio:		READ 1
+					READ 2
+					LOAD 2
+					JZERO no_es_entero
+
+					LOAD 1
+					STORE 3
+
+					MOD 2
+					JZERO es_entero
+
+no_es_entero:	WRITE =0
+					JUMP fin
+
+es_entero:	WRITE =1
+
+fin:	HALT

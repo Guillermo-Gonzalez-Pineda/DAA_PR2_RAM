@@ -52,7 +52,6 @@ CMakeFiles/RAM.dir/src/memoria-datos.cc.o
 CMakeFiles/RAM.dir/src/memoria-programa.cc.o
  /home/guillermo/DAA/PR2_RAM/DAA_PR2_RAM/include/memoria-programa.h
  /home/guillermo/DAA/PR2_RAM/DAA_PR2_RAM/src/memoria-programa.cc
-CMakeFiles/RAM.dir/src/unidad-alu.cc.o
 CMakeFiles/RAM.dir/src/unidad-entrada.cc.o
  /home/guillermo/DAA/PR2_RAM/DAA_PR2_RAM/include/unidad-entrada.h
  /home/guillermo/DAA/PR2_RAM/DAA_PR2_RAM/src/unidad-entrada.cc

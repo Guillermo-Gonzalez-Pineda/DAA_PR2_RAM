@@ -6,7 +6,7 @@
       "type": "cppdbg",
       "request": "launch",
       "program": "${workspaceFolder}/debug/RAM",
-      "args": ["../input/programa5.ram", "../input/entrada.txt", "../output/salida.txt"],
+      "args": ["../input/testModi.ram", "../input/entrada.txt", "../output/salida.txt"],
       "stopAtEntry": true,
       "cwd": "${workspaceFolder}/debug",
       "environment": [],

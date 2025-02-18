@@ -4,7 +4,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/RAM.dir/src/main.cc.o"
   "CMakeFiles/RAM.dir/src/memoria-datos.cc.o"
   "CMakeFiles/RAM.dir/src/memoria-programa.cc.o"
-  "CMakeFiles/RAM.dir/src/unidad-alu.cc.o"
   "CMakeFiles/RAM.dir/src/unidad-entrada.cc.o"
   "CMakeFiles/RAM.dir/src/unidad-salida.cc.o"
   "RAM"
